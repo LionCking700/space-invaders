@@ -36,11 +36,11 @@ public class GazePointer : MonoBehaviour
         {
             if (currentObject != null)
             {
-                currentObject.SendMessage("OnPointExit", pointerEventData, SendMessageOptions.DontRequireReceiver);
+                currentObject.SendMessage("OnPointerExit", pointerEventData, SendMessageOptions.DontRequireReceiver);
             }
             if (hitObject != null)
             {
-                hitObject.SendMessage("OnPointEnter", pointerEventData, SendMessageOptions.DontRequireReceiver);
+                hitObject.SendMessage("OnPointerEnter", pointerEventData, SendMessageOptions.DontRequireReceiver);
             }
             currentObject = hitObject;
         }
