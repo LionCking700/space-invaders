@@ -220,6 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 78368656}
   - component: {fileID: 78368657}
+  - component: {fileID: 78368658}
   m_Layer: 0
   m_Name: LeftGun
   m_TagString: Untagged
@@ -236,7 +237,7 @@ Transform:
   m_GameObject: {fileID: 78368655}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000014901159, y: -0.000000029802319, z: -0.00000004470348, w: 1}
-  m_LocalPosition: {x: -0.00023408979, y: -25.107758, z: 23.42027}
+  m_LocalPosition: {x: -0.0002340898, y: -25.107758, z: 23.42027}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -255,6 +256,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2513761cbbf8a41b8c8d8cfdc7550a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gun
+  animator: {fileID: 78368658}
+  bulletPivot: {fileID: 1715662602}
+  bulletPool: {fileID: 398788982}
+--- !u!95 &78368658
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78368655}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a45414d0d8d9394f84d8b0cd7f58386, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &91888606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,6 +1802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1416847315}
   - component: {fileID: 1416847316}
+  - component: {fileID: 1416847317}
   m_Layer: 0
   m_Name: RightGun
   m_TagString: Untagged
@@ -1812,6 +1839,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2513761cbbf8a41b8c8d8cfdc7550a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gun
+  animator: {fileID: 1416847317}
+  bulletPivot: {fileID: 1883789677}
+  bulletPool: {fileID: 398788982}
+--- !u!95 &1416847317
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416847314}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a45414d0d8d9394f84d8b0cd7f58386, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1420918494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2018,13 +2070,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715662601}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1569592, z: 0}
+  m_LocalRotation: {x: -0.69269687, y: -0.09118486, z: -0.0000029690864, w: 0.71544135}
+  m_LocalPosition: {x: -0.000036210986, y: 1.1569778, z: 0.0006903431}
   m_LocalScale: {x: 1, y: 0.12984945, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256752336}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -82.38, y: -79.699, z: 72.289}
 --- !u!1 &1791587840
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,13 +2242,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883789676}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000014901159, y: -0.000000029802319, z: -0.00000004470348, w: 1}
-  m_LocalPosition: {x: 0.019999757, y: 1.1712427, z: -0.06999874}
+  m_LocalRotation: {x: -0.7032085, y: -0.092567615, z: -0.0000035837288, w: 0.70493203}
+  m_LocalPosition: {x: 0.01999094, y: 1.1712633, z: -0.06977177}
   m_LocalScale: {x: 1, y: 0.1298495, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1807906168}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -82.493, y: -92.694, z: 85.172}
 --- !u!1 &1894134225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,6 +2396,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1055070105}
   m_LocalEulerAnglesHint: {x: -0.152, y: -89.603, z: -90}
+--- !u!1 &1942529028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1942529031}
+  - component: {fileID: 1942529030}
+  - component: {fileID: 1942529029}
+  m_Layer: 0
+  m_Name: InstantiateAsteroids
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1942529029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942529028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cefae8fa0a1c4924990e11549ce94dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Asteroid
+  speed: 5
+  onAsteroidDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1942529030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942529028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0326cbc2ad64644dbb396eef4f7f06c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InstantiatePoolObjects
+  prefab: {fileID: 0}
+--- !u!4 &1942529031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942529028}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.74488, y: 1.2039, z: -1.65801}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1969242804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2353,6 +2467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1969242805}
+  - component: {fileID: 1969242806}
   m_Layer: 0
   m_Name: SpaceShipGuns
   m_TagString: Untagged
@@ -2377,6 +2492,22 @@ Transform:
   - {fileID: 1416847315}
   m_Father: {fileID: 1055070105}
   m_LocalEulerAnglesHint: {x: -0.152, y: -89.603, z: -90}
+--- !u!114 &1969242806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969242804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93339f4dffff90144ae68cb5098362d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunController
+  guns:
+  - {fileID: 78368657}
+  - {fileID: 1416847316}
+  playerCamera: {fileID: 1055070104}
 --- !u!1001 &2044431185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2580,6 +2711,63 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7429715789223619311, guid: 07a6b80bbfffbab4d93b0ed269dadfae, type: 3}
   m_PrefabInstance: {fileID: 2428817591611075346}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2720084640947025690
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3126625063201691638, guid: 36faf2333c160c244a7dd4ac95879ceb, type: 3}
+      propertyPath: m_Name
+      value: asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849355016669022766, guid: 36faf2333c160c244a7dd4ac95879ceb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.30613
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849355016669022766, guid: 36faf2333c160c244a7dd4ac95879ceb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849355016669022766, guid: 36faf2333c160c244a7dd4ac95879ceb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.22615
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849355016669022766, guid: 36faf2333c160c244a7dd4ac95879ceb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849355016669022766, guid: 36faf2333c160c244a7dd4ac95879ceb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849355016669022766, guid: 36faf2333c160c244a7dd4ac95879ceb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849355016669022766, guid: 36faf2333c160c244a7dd4ac95879ceb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849355016669022766, guid: 36faf2333c160c244a7dd4ac95879ceb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849355016669022766, guid: 36faf2333c160c244a7dd4ac95879ceb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849355016669022766, guid: 36faf2333c160c244a7dd4ac95879ceb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 36faf2333c160c244a7dd4ac95879ceb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2596,3 +2784,5 @@ SceneRoots:
   - {fileID: 205068151}
   - {fileID: 775317821}
   - {fileID: 988419063}
+  - {fileID: 2720084640947025690}
+  - {fileID: 1942529031}
