@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 024886bba705fd04caead7355e41b9ff
   - enabled: 1
     path: Assets/Scenes/Game.unity
-    guid: 80592da1c3577224981ceb90890bf434
+    guid: bd7e53becafffd24cbbcba9cb09c8970
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7160c7091b56d664f99c754d33daa3da, type: 2}

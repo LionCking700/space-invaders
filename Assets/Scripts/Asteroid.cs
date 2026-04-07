@@ -1,49 +1,77 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
-
+ 
 public class Asteroid : MonoBehaviour
 {
     private Animator animator;
     private Transform target;
     [SerializeField]
+    private Health health;
+    [SerializeField]
+     private float bulletDamage = 25f;
+      [SerializeField]
     private float speed = 5f;
     [SerializeField]
+    private float distanceToTarget = 2f;
     private UnityEvent<Transform> onAsteroidDestroyed;
-    public UnityEvent<Transform> OnAsteroidDestroyed
-    {
-        set { OnAsteroidDestroyed = value; }
-    }
+    public UnityEvent<Transform> OnAsteroidDestroyed => onAsteroidDestroyed;
+    private Collider asteroidCollider;
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        health = GetComponent<Health>();
+        asteroidCollider = GetComponent<Collider>();
     }
+    private void OnEnable()
+    {
+        health.InitializeHealth();
+    }
+   private void OnPointerClick()
+    {
+        health.TakeDamage(bulletDamage);
+    }
+ 
     public void SetTarget(Transform target)
     {
         this.target = target;
     }
+ 
     private void Update()
     {
         if (target != null)
         {
             Vector3 direction = (target.position - transform.position).normalized;
             transform.position += direction * speed * Time.deltaTime;
+            if (Vector3.Distance(transform.position,target.position) <= distanceToTarget)
+            {
+                target.GetComponent<health>().TakeDamage(asteroidDamage);
+                DestroyAsteroid();
+            }
         }
     }
-    public void DestroidAsteroid()
+ 
+    public void DestroyAsteroid()
     {
+        target = null;
+        asteroidCollider.enabled = false;
         animator.Play("Destroy", 0, 0f);
         onAsteroidDestroyed?.Invoke(transform);
         StartCoroutine(DestroyCoroutine());
     }
+ 
     private IEnumerator DestroyCoroutine()
     {
         yield return null;
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
         gameObject.SetActive(false);
     }
+ 
     private void OnDisable()
     {
         target = null;
+        onAsteroidDestroyed.RemoveAllListeners();
     }
 }
+ 
+ 
