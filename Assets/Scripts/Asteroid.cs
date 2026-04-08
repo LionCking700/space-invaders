@@ -1,20 +1,27 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using System.Collections;
+ 
  
 public class Asteroid : MonoBehaviour
 {
+ 
     private Animator animator;
     private Transform target;
-    [SerializeField]
     private Health health;
     [SerializeField]
-     private float bulletDamage = 25f;
-      [SerializeField]
+    private float  maxHealth = 100f;
+    [SerializeField]
+    private float bulletDamage = 25f;
+    [SerializeField]
     private float speed = 5f;
     [SerializeField]
     private float distanceToTarget = 2f;
-    private UnityEvent<Transform> onAsteroidDestroyed;
+ 
+    [SerializeField]
+   
+     private UnityEvent<Transform> onAsteroidDestroyed;
+   
     public UnityEvent<Transform> OnAsteroidDestroyed => onAsteroidDestroyed;
     private Collider asteroidCollider;
     private void Awake()
@@ -23,13 +30,19 @@ public class Asteroid : MonoBehaviour
         health = GetComponent<Health>();
         asteroidCollider = GetComponent<Collider>();
     }
+ 
     private void OnEnable()
     {
+        animator.Play("Idle", 0, 0f);
+        asteroidCollider.enabled = true;
         health.InitializeHealth();
     }
-   private void OnPointerClick()
+ 
+    public void OnPointerClick()
     {
+       
         health.TakeDamage(bulletDamage);
+ 
     }
  
     public void SetTarget(Transform target)
@@ -40,24 +53,24 @@ public class Asteroid : MonoBehaviour
     private void Update()
     {
         if (target != null)
-        {
+        {  
             Vector3 direction = (target.position - transform.position).normalized;
             transform.position += direction * speed * Time.deltaTime;
-            if (Vector3.Distance(transform.position,target.position) <= distanceToTarget)
+            if (Vector3.Distance(transform.position, target.position)<= distanceToTarget)
             {
-                target.GetComponent<health>().TakeDamage(asteroidDamage);
                 DestroyAsteroid();
             }
+ 
         }
     }
- 
     public void DestroyAsteroid()
     {
-        target = null;
-        asteroidCollider.enabled = false;
-        animator.Play("Destroy", 0, 0f);
-        onAsteroidDestroyed?.Invoke(transform);
-        StartCoroutine(DestroyCoroutine());
+      target = null;
+      asteroidCollider.enabled = false;  
+      animator.Play("Explode", 0, 0f);
+      onAsteroidDestroyed?.Invoke(transform);
+      StartCoroutine(DestroyCoroutine());  
+ 
     }
  
     private IEnumerator DestroyCoroutine()
@@ -72,6 +85,6 @@ public class Asteroid : MonoBehaviour
         target = null;
         onAsteroidDestroyed.RemoveAllListeners();
     }
-}
  
+}
  
