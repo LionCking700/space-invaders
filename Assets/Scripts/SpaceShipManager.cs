@@ -1,40 +1,41 @@
 using UnityEngine;
+using UnityEngine.Events;
+using System.Collections;
 
 public class SpaceShipManager : MonoBehaviour
 {
    [SerializeField]
-   private Health palyerHealth;
+   private Health playerHealth;
    [SerializeField]
    private int  numberOfSpaceShips = 5;
    [SerializeField]
-   private Instantiate PoolObjcts spaceShipPool;
+   private InstantiatePoolObjects spaceshipPool;
    [SerializeField]
-   private InstantiatePoolObjcts spaceshipPool;
-   [SerializeField]
-   private Instantiate PoolObjects bulletpool;
+   private InstantiatePoolObjects bulletPool;
    [SerializeField]
    private float timeToSpawn = 15f;
    [SerializeField]
-   private UnityEvent<TransformZ> onShipDestroyed;
+   private UnityEvent<Transform> onShipDestroyed;
    public void OnDestroyShip(Transform transform)
     {
         onShipDestroyed.Invoke(transform);
     }
     private void Satrt()
     {
-        StartCoroutine(SpawnSpaceShips());
+        StartCoroutine(SpawnSpaceships());
     }
-    private IEnumerator SpawnSpaceShips()
+    private IEnumerator SpawnSpaceships()
     {
         numberOfSpaceShips--;
         yield return new WaitForSeconds(timeToSpawn);
         spaceshipPool.InstantiateObject(transform);
-        EnemySpaceShip = spaceshipPool.GetCurrentObject().GetComponent<EnemySpaceShip>();
-        spaceshipPool.TargetHealth = palyerHealth;
-        spaceshipPool.OnDestroyed.AddListener(OnDestroyShip);
+        EnemySpaceship spaceship =spaceshipPool.GetCurrentObject().GetComponent<EnemySpaceship>();
+        spaceship.TargetHealth = playerHealth;
+        spaceship.BulletPool = bulletPool;
+        spaceship.OnDestroyed.AddListener(OnDestroyShip);
         if (numberOfSpaceShips > 0)
         {
-            StartCoroutine(SpawnSpaceShips());
+            StartCoroutine(SpawnSpaceships());
         }
     }
 }
