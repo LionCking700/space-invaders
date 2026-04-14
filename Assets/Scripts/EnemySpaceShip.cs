@@ -69,6 +69,7 @@ public class EnemySpaceship : MonoBehaviour
     private void OnDisable()
     {
         targetHealth = null;
+        onDestroyed.Invoke(transform);
         OnDestroyed.RemoveAllListeners();
         if (animationCoroutine != null)
         {
