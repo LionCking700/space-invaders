@@ -3,18 +3,18 @@ using UnityEngine;
 public class BestScore : MonoBehaviour
 {
     [SerializeField]
-    private TextMash bestscoreText;
-    public void UpdatebestScore(int bestScore)
+    private TextMesh bestScoreText;
+    public void UpdateBestScore(int bestScore)
     {
-        int highScore = PlayerPrefabs.GetInt("BestScore", 0);
+        int highScore = PlayerPrefs.GetInt("BestScore", 0);
         if (bestScore > highScore)
         {
-            PlayerPrefabs.SetInt("BestScore", bestScore);
-            bestscoreText.text = "Best Score\n" + highScore.ToString();
+            PlayerPrefs.SetInt("BestScore", bestScore);
+            bestScoreText.text = "Best Score\n" + bestScore.ToString();
         }
         else
         {
-            bestscoreText.text = "Best Score\n" + highScore.ToString();
+            bestScoreText.text = "Best Score\n" + highScore.ToString();
         }
     }
 }

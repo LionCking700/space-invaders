@@ -30,14 +30,14 @@ public class SpaceShipManager : MonoBehaviour
             onAllShipsDestroyed?.Invoke();
         }
     }
-    public void SatrtShips()
+    public void StartShips()
     {
         StartCoroutine(SpawnSpaceships());
     }
     public void StopShips()
     {
         StopAllCoroutines();
-        spaceShipsPool.DeasctivateAllObjects();
+        spaceshipPool.DeactivateAllObjects();
     }
     private IEnumerator SpawnSpaceships()
     {

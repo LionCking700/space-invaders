@@ -14,7 +14,7 @@ public class AsteroidManager : MonoBehaviour
     [SerializeField]
     private int numberOfAsteroids = 10;
     [SerializeField]
-    private UnityEvent onAllAsteroidDestroyed;
+    private UnityEvent onAllAsteroidsDestroyed;
      [SerializeField]
      private UnityEvent onInstantiateAsteroid;
     private int asteroidDestroyed = 0;
@@ -24,15 +24,15 @@ public class AsteroidManager : MonoBehaviour
         float initialDelay = 0f;
         for (int i = 0; i < numberOfAsteroids; i++)
         {
-        Invoke("SpawnAsteroid", initialDelay);
-        initialDelay += spawnInterval;
+            Invoke("SpawnAsteroid", initialDelay);
+            initialDelay += spawnInterval;
         }
     }
     public void StopAsteroids()
     {
         isActive = false;
         CancelInvoke("SpawnAsteroid");
-        asteroidPool:DeactivateAllObjects();
+        asteroidPool.DeactivateAllObjects();
     }
     private void SpawnAsteroid()
     {
@@ -50,7 +50,7 @@ public class AsteroidManager : MonoBehaviour
     {
         asteroidDestroyed++;
         if (asteroidDestroyed >= numberOfAsteroids)
-        onAllAsteroidsDestroyed?.Invoke();
+            onAllAsteroidsDestroyed?.Invoke();
         onAsteroidDestroyed?.Invoke(asteroid);
     }
        

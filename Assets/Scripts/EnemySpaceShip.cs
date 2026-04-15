@@ -62,10 +62,9 @@ public class EnemySpaceship : MonoBehaviour
  
     public void DestroySpaceship()
     {
-        onDestroyed.Invoke(transform);
+        //onDestroyed.Invoke(transform);
         gameObject.SetActive(false);
     }
- 
     private void OnDisable()
     {
         targetHealth = null;

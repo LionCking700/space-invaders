@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         gameLost = true;
         onLoseGame?.Invoke();
         spaceshipManager.StopShips();
-        asteroidManager.StopAsteroid();
+        asteroidManager.StopAsteroids();
     }
     private void Start()
     {
@@ -35,18 +35,18 @@ public class GameManager : MonoBehaviour
     public void AllShipsDestroyed()
     {
         allShipsDestroyed = true;
-        CheckWindCondition();
+        CheckWinCondition();
     }
     public void AllAsteroidDestroyed()
     {
         allAsteroidDestroyed = true;
-        CheckWidCondition();
+        CheckWinCondition();
     }
-    private void CheckWindCondition()
+    private void CheckWinCondition()
     {
         if (!gameLost && allShipsDestroyed && allAsteroidDestroyed)
         {
-            onUpdateBastScore?.Invoke(scoreManager.Score);
+            onUpdateBestScore?.Invoke(scoreManager.Score);
             onWinGame?.Invoke();
         }
     }
